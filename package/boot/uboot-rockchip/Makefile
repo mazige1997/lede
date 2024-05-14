@@ -320,6 +320,17 @@ define U-Boot/advantech-rsb4810-rk3568
   DDR:=rk3568_ddr_1560MHz_v1.18.bin
 endef
 
+define U-Boot/dg3399-rk3399
+  BUILD_SUBTARGET:=armv8
+  NAME:=DG3399
+  BUILD_DEVICES:= \
+    dg3399
+  DEPENDS:=+PACKAGE_u-boot-dg3399-rk3399:arm-trusted-firmware-rk3399
+  PKG_BUILD_DEPENDS:=arm-trusted-firmware-rockchip-vendor
+  ATF:=rk3399_bl31_v1.35.elf
+  USE_RKBIN:=1
+endef
+
 UBOOT_TARGETS := \
   advantech-rsb4810-rk3568 \
   lyt-t68m-rk3568 \
